@@ -14,7 +14,14 @@ var innerRp = function ($, statement) {
 //渲染内容
 function renderContent(tpl, data, isFinal) {
     var temp = juicer(tpl, data)
-
+    if(temp == null)
+    {
+        console.log("gg-template-engine: render Error  tpl: ===========================")
+        console.log(tpl)
+        console.log("data: ===========================================================")
+        console.log(data)
+        throw new Error("gg-template-engine: render Error ");
+    }
     if (isFinal) {
         //支持final replace功能
         return temp.replace(/<gg\[((?!<gg\[).)*\]>/igm, innerRp)
