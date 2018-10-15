@@ -13,7 +13,7 @@ var innerRp = function ($, statement) {
 
 //渲染内容
 function renderContent(tpl, data, isFinal) {
-    var temp = juicer(tpl, data)
+    var temp = juicer(tpl, data, {errorhandling : false})
     if(temp == null)
     {
         console.log("gg-template-engine: render Error  tpl: ===========================")
